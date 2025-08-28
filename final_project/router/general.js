@@ -20,17 +20,16 @@ public_users.post("/register", (req,res) => {
   return res.status(404).json({message: "Unable to register user."});
 });
 
-// Get the book list available in the shop
+// Task 10 - Get the book list available in the shop using Promises
 public_users.get('/',function (req, res) {
     const get_books = new Promise((resolve, reject) => {
         resolve(res.send(JSON.stringify({books}, null, 4)));
       });
 
       get_books.then(() => console.log("Promise for Task 10 resolved"));
-
 });
 
-// Get book details based on ISBN
+// Task 11 - Get book details based on ISBN using Promises
 public_users.get('/isbn/:isbn',function (req, res) {
   const isbn = req.params.isbn;
   const get_books_isbn = new Promise((resolve, reject) => {
@@ -45,10 +44,9 @@ public_users.get('/isbn/:isbn',function (req, res) {
   get_books_isbn.
     then(() => console.log("Promise for Task 11 resolved")).
     catch(() => console.log("Promise for Task 11 rejected"));
-
  });
 
-// Get book details based on author
+// Task 12 - Get book details based on author using Promises
 public_users.get('/author/:author',function (req, res) {
     const author = req.params.author;
     const get_books_author = new Promise((resolve, reject) => {
@@ -73,7 +71,7 @@ public_users.get('/author/:author',function (req, res) {
         catch(() => console.log("Promise for Task 12 rejected"));
 });
 
-// Get all books based on title
+// Task 13 - Get book details based on title using Promises
 public_users.get('/title/:title',function (req, res) {
     const title = req.params.title;
     const get_books_title = new Promise((resolve, reject) => {
